@@ -1401,6 +1401,31 @@
       background: rgba(7, 12, 22, 0.78);
     }
 
+    input.error,
+    select.error,
+    textarea.error {
+      border-color: rgba(255, 138, 138, 0.6);
+      background: rgba(255, 138, 138, 0.05);
+    }
+
+    input.error:focus,
+    select.error:focus,
+    textarea.error:focus {
+      border-color: rgba(255, 138, 138, 0.8);
+      box-shadow: 0 0 0 4px rgba(255, 138, 138, 0.15);
+    }
+
+    option {
+      background: var(--bg-soft);
+      color: var(--text);
+    }
+
+    .field:has([required]) label::after,
+    .checkbox-row:has([required]) label::after {
+      content: " *";
+      color: #ffc1c1;
+    }
+
     .file-drop {
       position: relative;
       padding: 18px;

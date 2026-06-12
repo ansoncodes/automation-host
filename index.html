@@ -1740,20 +1740,27 @@
       function validateForm(form) {
         var requiredFields = form.querySelectorAll("[required]");
         var firstInvalid = null;
+        var hasErrors = false;
         requiredFields.forEach(function (field) {
+          field.classList.remove("error");
+          var isInvalid = false;
           if (field.type === "checkbox") {
-            if (!field.checked && !firstInvalid) {
+            isInvalid = !field.checked;
+          } else {
+            isInvalid = !field.value.trim();
+          }
+          
+          if (isInvalid) {
+            field.classList.add("error");
+            hasErrors = true;
+            if (!firstInvalid) {
               firstInvalid = field;
             }
-            return;
-          }
-          if (!field.value.trim() && !firstInvalid) {
-            firstInvalid = field;
           }
         });
-        if (firstInvalid) {
+        if (hasErrors) {
           firstInvalid.focus();
-          showFeedback(form, "error", "Please complete the required fields before submitting the form.");
+          showFeedback(form, "error", "Please complete the highlighted required fields before submitting.");
           return false;
         }
         return true;
