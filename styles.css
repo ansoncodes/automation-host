@@ -1611,6 +1611,21 @@
       border: none;
     }
 
+    /* Phone icon-only button — mirrors WA button shape, blue accent */
+    .mobile-call-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      min-height: 48px;
+      flex-shrink: 0;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #1a6ee0 0%, #4a90f7 100%);
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+      border: none;
+    }
+
     .modal-backdrop {
       position: fixed;
       inset: 0;
